@@ -5,101 +5,39 @@
     <title>PNG Parliament VR Tour</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   </head>
-
   <body>
-
     <a-scene>
 
-      <!-- Room 1: Entrance Hall -->
+      <!-- Room 1 -->
       <a-entity id="room1">
-        <a-sky color="#a0c4ff"></a-sky>
-        <a-text value="Welcome to PNG National Parliament!"
-                position="-2 2 -3"
-                width="6"
-                color="yellow">
-        </a-text>
-        <a-box id="to-chamber" position="2 0.5 -3" depth="0.3" height="0.5" width="1" color="green"
-               event-set__enter="_event: mouseenter; color: #32CD32"
-               event-set__leave="_event: mouseleave; color: green">
-          <a-text value="Go to Chamber" position="-0.45 0 0.35" color="black" width="2"></a-text>
+        <a-sky src="entrance-hall.jpg" rotation="0 -90 0"></a-sky>
+        <a-text value="Entrance Hall" position="-2 2 -3" color="yellow"></a-text>
+        <a-box id="to-chamber" position="2 0.5 -3" color="green">
+          <a-text value="Go to Chamber" position="-0.45 0 0.35" color="black"></a-text>
         </a-box>
       </a-entity>
 
-      <!-- Room 2: Parliament Chamber -->
+      <!-- Room 2 -->
       <a-entity id="room2" visible="false">
-        <a-sky color="#ffe066"></a-sky>
-        <a-text value="Parliament Chamber – Where laws are debated" position="-2 2 -3" width="6" color="red"></a-text>
-        <a-box id="to-state-room" position="2 0.5 -3" depth="0.3" height="0.5" width="1" color="green">
-          <a-text value="Go to State Function Room" position="-0.7 0 0.35" color="black" width="2"></a-text>
-        </a-box>
-        <a-box id="back-to-entrance1" position="-2 0.5 -3" depth="0.3" height="0.5" width="1" color="orange">
-          <a-text value="Back to Entrance" position="-0.45 0 0.35" color="black" width="2"></a-text>
+        <a-sky src="parliament-chamber.jpg" rotation="0 -90 0"></a-sky>
+        <a-text value="Parliament Chamber" position="-2 2 -3" color="red"></a-text>
+        <a-box id="back-to-entrance1" position="-2 0.5 -3" color="orange">
+          <a-text value="Back to Entrance" position="-0.45 0 0.35" color="black"></a-text>
         </a-box>
       </a-entity>
 
-      <!-- Room 3: State Function Room -->
-      <a-entity id="room3" visible="false">
-        <a-sky color="#90be6d"></a-sky>
-        <a-text value="State Function Room – Official ceremonies" position="-2 2 -3" width="6" color="white"></a-text>
-        <a-box id="to-gallery" position="2 0.5 -3" depth="0.3" height="0.5" width="1" color="green">
-          <a-text value="Go to Public Gallery" position="-0.5 0 0.35" color="black" width="2"></a-text>
-        </a-box>
-        <a-box id="back-to-chamber" position="-2 0.5 -3" depth="0.3" height="0.5" width="1" color="orange">
-          <a-text value="Back to Chamber" position="-0.45 0 0.35" color="black" width="2"></a-text>
-        </a-box>
-      </a-entity>
-
-      <!-- Room 4: Public Gallery -->
-      <a-entity id="room4" visible="false">
-        <a-sky color="#f94144"></a-sky>
-        <a-text value="Public Gallery – Visitors can watch sessions" position="-2 2 -3" width="6" color="white"></a-text>
-        <a-box id="back-to-state-room2" position="-2 0.5 -3" depth="0.3" height="0.5" width="1" color="orange">
-          <a-text value="Back to State Room" position="-0.55 0 0.35" color="black" width="2"></a-text>
-        </a-box>
-      </a-entity>
-
-      <!-- Camera -->
       <a-camera></a-camera>
-
     </a-scene>
 
     <script>
-      // Navigation logic
-      const room1 = document.querySelector('#room1');
-      const room2 = document.querySelector('#room2');
-      const room3 = document.querySelector('#room3');
-      const room4 = document.querySelector('#room4');
-
       document.querySelector('#to-chamber').addEventListener('click', () => {
-        room1.setAttribute('visible', 'false');
-        room2.setAttribute('visible', 'true');
+        document.querySelector('#room1').setAttribute('visible', 'false');
+        document.querySelector('#room2').setAttribute('visible', 'true');
       });
-
       document.querySelector('#back-to-entrance1').addEventListener('click', () => {
-        room2.setAttribute('visible', 'false');
-        room1.setAttribute('visible', 'true');
-      });
-
-      document.querySelector('#to-state-room').addEventListener('click', () => {
-        room2.setAttribute('visible', 'false');
-        room3.setAttribute('visible', 'true');
-      });
-
-      document.querySelector('#back-to-chamber').addEventListener('click', () => {
-        room3.setAttribute('visible', 'false');
-        room2.setAttribute('visible', 'true');
-      });
-
-      document.querySelector('#to-gallery').addEventListener('click', () => {
-        room3.setAttribute('visible', 'false');
-        room4.setAttribute('visible', 'true');
-      });
-
-      document.querySelector('#back-to-state-room2').addEventListener('click', () => {
-        room4.setAttribute('visible', 'false');
-        room3.setAttribute('visible', 'true');
+        document.querySelector('#room2').setAttribute('visible', 'false');
+        document.querySelector('#room1').setAttribute('visible', 'true');
       });
     </script>
-
   </body>
 </html>
