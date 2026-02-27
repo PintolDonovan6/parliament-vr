@@ -8,25 +8,27 @@
   <body>
     <a-scene>
 
-      <!-- Room 1 -->
+      <!-- Room 1: Entrance Hall -->
       <a-entity id="room1">
-        <a-sky src="entrance-hall.jpg" rotation="0 -90 0"></a-sky>
-        <a-text value="Entrance Hall" position="-2 2 -3" color="yellow"></a-text>
-        <a-box id="to-chamber" position="2 0.5 -3" color="green">
-          <a-text value="Go to Chamber" position="-0.45 0 0.35" color="black"></a-text>
+        <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg" rotation="0 -90 0"></a-sky>
+        <a-text value="Entrance Hall" position="-2 2 -3" color="yellow" width="6"></a-text>
+        <a-box id="to-chamber" position="2 0.5 -3" depth="0.3" height="0.5" width="1" color="green">
+          <a-text value="Go to Chamber" position="-0.45 0 0.35" color="black" width="2"></a-text>
         </a-box>
       </a-entity>
 
-      <!-- Room 2 -->
+      <!-- Room 2: Parliament Chamber -->
       <a-entity id="room2" visible="false">
-        <a-sky src="parliament-chamber.jpg" rotation="0 -90 0"></a-sky>
-        <a-text value="Parliament Chamber" position="-2 2 -3" color="red"></a-text>
-        <a-box id="back-to-entrance1" position="-2 0.5 -3" color="orange">
-          <a-text value="Back to Entrance" position="-0.45 0 0.35" color="black"></a-text>
+        <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/royal_oak.jpg" rotation="0 -90 0"></a-sky>
+        <a-text value="Parliament Chamber" position="-2 2 -3" color="red" width="6"></a-text>
+        <a-box id="back-to-entrance1" position="-2 0.5 -3" depth="0.3" height="0.5" width="1" color="orange">
+          <a-text value="Back to Entrance" position="-0.45 0 0.35" color="black" width="2"></a-text>
         </a-box>
       </a-entity>
 
+      <!-- Camera -->
       <a-camera></a-camera>
+
     </a-scene>
 
     <script>
